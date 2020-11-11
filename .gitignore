@@ -8,3 +8,6 @@ jspm_packages
 # Environment
 .env.development
 .env.production
+
+# Ignore build folder
+build/
