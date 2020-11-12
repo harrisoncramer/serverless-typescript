@@ -5,6 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "dev": "serverless offline",
+    "local": "serverless invoke local --function",
+    "cloud": "serverless invoke --function",
     "deploy": "NODE_ENV=production serverless deploy"
   },
   "dependencies": {
