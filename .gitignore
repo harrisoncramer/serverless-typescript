@@ -5,9 +5,9 @@ jspm_packages
 # Serverless directories
 .serverless
 
-# Environment
+# Webpack directories
+.webpack
+
+# Environment keys
 .env.development
 .env.production
-
-# Ignore build folder
-build/

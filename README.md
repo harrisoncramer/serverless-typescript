@@ -10,16 +10,18 @@ The functions are written in Typescript. For information about loading the `.env
 
 ## Development
 
-To run a function locally (compile the files in typescript, then run the compiled `.js` function):
+To spin up the development server locally, run `yarn dev`
 
-`yarn local FUNCTION_NAME` 
+This is an alias for the `serverless offline` command which uses the serverless-offline plugin to spin up a development server with our lambdas at various endpoints.
 
-To run a function on the cloud that's been deployed:
+The functions can then be hit with Postman, Curl, or another service.
 
-`yarn cloud FUNCTION_NAME`
+To run a function in isolation use the `yarn local` command, followed by the function name. This is an alias for `serverless invoke local --function`
+
+To run the same function on the cloud, after deployment, use `yarn cloud`
 
 ## Deployment
 
-`yarn prod:deploy` 
+`yarn deploy`
 
-This command set the `NODE_ENV` to production, loading the correct environment variables, and then deploys the function to the cloud (configuration inside the `.yml` file).
+This command set the `NODE_ENV` to production, loading the correct environment variables, and then deploys the function to the cloud (configuration inside the `serverless.ts` file).
