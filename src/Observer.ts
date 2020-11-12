@@ -1,8 +1,9 @@
-import { APIGatewayEvent, Context, ProxyResult } from "aws-lambda";
+import { APIGatewayEvent, Callback, Context, ProxyResult } from "aws-lambda";
+import { isString } from "./util";
 
 export const temp = async (
-  event: APIGatewayEvent,
-  context: Context
+  event: APIGatewayEvent, // The event that triggers the function. In this case, an API Get request
+  context: Context // The context of the execution
 ): Promise<ProxyResult> => {
   let response: ProxyResult;
   try {
@@ -20,4 +21,26 @@ export const temp = async (
   }
 
   return response;
+};
+
+export const poster = async (
+  event: APIGatewayEvent, // The event that triggers ''the function. In this case, an API Get request
+  context: Context, // The context of the execution
+  callback: Callback
+): Promise<void> => {
+  let response: ProxyResult;
+  let input = isString(event) ? event : JSON.stringify(event);
+
+  // Do something with the input...
+
+  try {
+    response = {
+      statusCode: 200,
+      body: input,
+    };
+    callback(null, response);
+  } catch (err) {
+    console.error(err);
+    callback(err);
+  }
 };

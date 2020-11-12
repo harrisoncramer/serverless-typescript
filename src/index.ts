@@ -1,1 +1,1 @@
-export { temp } from "./Observer";
+export { temp, poster } from "./Observer";

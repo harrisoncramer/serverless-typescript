@@ -6,11 +6,20 @@ provider:
   region: us-east-1
 functions:
   temp:
+    description: Returns the current temperature
     handler: ./build/index.temp
+    events:
+      - http:
+          path: /temp
+          method: get
     environment:
       secret: ${env:SECRET}
+  poster:
+    description: Accepts posts requests and sends back the body
+    handler: ./build/index.poster
+    events:
+      - http:
+          path: /poster
+          method: post
 plugins:
   - serverless-dotenv-plugin
-
-
-
