@@ -42,8 +42,7 @@ const serverlessConfiguration: Serverless = {
         },
         {
           schedule: {
-            rate: "cron(0/5 * * * ? *)",
-            name: "every_five_minutes",
+            rate: "cron(0/2 * * * ? *)",
           },
         },
       ],

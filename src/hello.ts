@@ -7,6 +7,7 @@ export const getter: APIGatewayProxyHandler = async (
   _context,
   callback
 ): Promise<APIGatewayProxyResult> => {
+  console.log(`Running getter function`);
   try {
     let result = {
       statusCode: 200,

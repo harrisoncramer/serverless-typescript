@@ -5,10 +5,15 @@
   "main": "handler.js",
   "scripts": {
     "dev": "serverless offline",
-    "local": "serverless invoke local --function",
-    "cloud": "serverless invoke --function",
     "deploy:prod": "NODE_ENV=production serverless deploy --stage prod",
-    "deploy:dev": "NODE_ENV=development serverless deploy --stage dev"
+    "deploy:dev": "NODE_ENV=development serverless deploy --stage dev",
+    "list:prod": "serverless deploy list functions --stage prod",
+    "list:dev": "serverless deploy list functions --stage dev",
+    "invoke:cloud:prod": "serverless invoke --stage prod -l --function",
+    "invoke:cloud:dev": "serverless invoke --stage dev -l --function",
+    "invoke:local": "serverless invoke local --function",
+    "logs:prod": "sls logs --stage prod --function",
+    "logs:dev": "sls logs --stage prod --function"
   },
   "dependencies": {
     "source-map-support": "^0.5.10"
