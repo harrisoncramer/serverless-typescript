@@ -6,6 +6,9 @@ const serverlessConfiguration: Serverless = {
   },
   frameworkVersion: "2",
   custom: {
+    dotenv: {
+      logging: false,
+    },
     webpack: {
       webpackConfig: "./webpack.config.js",
       includeModules: true,
@@ -35,6 +38,12 @@ const serverlessConfiguration: Serverless = {
           http: {
             method: "get",
             path: "getter",
+          },
+        },
+        {
+          schedule: {
+            rate: "cron(0/5 * * * ? *)",
+            name: "every_five_minutes",
           },
         },
       ],
